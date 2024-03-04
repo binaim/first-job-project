@@ -1,13 +1,13 @@
-package com.ghebreamlak.forstjobproject;
+package com.ghebreamlak.firstjobproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ForstJobProjectApplication {
+public class FirstJobProjectApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ForstJobProjectApplication.class, args);
+        SpringApplication.run(FirstJobProjectApplication.class, args);
     }
 
 }

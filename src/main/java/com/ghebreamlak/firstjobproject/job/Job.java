@@ -1,12 +1,8 @@
-package com.ghebreamlak.forstjobproject.job;
+package com.ghebreamlak.firstjobproject.job;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor

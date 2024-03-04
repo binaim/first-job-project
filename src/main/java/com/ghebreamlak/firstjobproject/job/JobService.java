@@ -1,4 +1,4 @@
-package com.ghebreamlak.forstjobproject.job;
+package com.ghebreamlak.firstjobproject.job;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.ghebreamlak.forstjobproject.job.impl;
+package com.ghebreamlak.firstjobproject.job.impl;
 
-import com.ghebreamlak.forstjobproject.job.Job;
-import com.ghebreamlak.forstjobproject.job.JobService;
+import com.ghebreamlak.firstjobproject.job.Job;
+import com.ghebreamlak.firstjobproject.job.JobService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
