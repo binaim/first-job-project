@@ -9,4 +9,6 @@ public interface JobService {
     Job getJobByID(Long id);
 
     boolean deleteJobByID(Long id);
+
+    Job updateJob(Long id, Job job);
 }

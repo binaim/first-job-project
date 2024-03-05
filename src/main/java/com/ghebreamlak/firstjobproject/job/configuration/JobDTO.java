@@ -1,6 +1,5 @@
-package com.ghebreamlak.firstjobproject.job;
+package com.ghebreamlak.firstjobproject.job.configuration;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-//@Table(name = "job_table")
-public class Job {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class JobDTO {
+
     private Long id;
     private String title;
     private String description;
