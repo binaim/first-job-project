@@ -58,7 +58,13 @@ public class JobServiceImpl implements JobService {
 
         Optional<Job> jobOptional = jobRepository.findById(id);
         try {
-            return jobRepository.save(jobOptional.get());
+            Job updatedJob = jobRepository.findById(id).get();
+            updatedJob.setDescription(job.getDescription());
+            updatedJob.setLocation(job.getLocation());
+            updatedJob.setTitle(job.getTitle());
+            updatedJob.setMinSalary(job.getMinSalary());
+            updatedJob.setMaxSalary(job.getMaxSalary());
+            return jobRepository.save(updatedJob);
         }catch (Exception e){
             log.fatal("the target job doesn't exist");
             return job;
