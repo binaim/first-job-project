@@ -4,6 +4,9 @@ import com.ghebreamlak.firstjobproject.company.Company;
 import com.ghebreamlak.firstjobproject.company.CompanyRepository;
 import com.ghebreamlak.firstjobproject.company.CompanyService;
 import com.ghebreamlak.firstjobproject.job.Job;
+import com.ghebreamlak.firstjobproject.job.JobRepository;
+import com.ghebreamlak.firstjobproject.review.Review;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,12 +14,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @AllArgsConstructor
 @Service
+@Transactional
 public class CompanyServiceImpl implements CompanyService {
     private CompanyRepository companyRepository;
+    private JobRepository jobRepository;
     @Override
     public List<Company> getAllCompanies() {
-
-        return companyRepository.findAll();
+        List<Company> companies = companyRepository.findAll();
+        return companies;
     }
 
     @Override
@@ -37,7 +42,19 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company createCompany(Company company) {
-        return companyRepository.save(company);
+        List<Job> jobs = company.getJobs();
+
+        for (Job job : jobs){
+            job.setCompany(company);
+            jobRepository.save(job);
+        }
+        Company comp = companyRepository.save(company);
+
+//        for (Review review : company.getReviews()) {
+//            reviewRepository.save(review);
+//        }
+
+        return comp;
     }
 
     @Override
@@ -49,6 +66,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company getCompanyByID(Long id) {
-        return companyRepository.findById(id).orElse(null);
+        Company company = companyRepository.findCompaniesById(id);
+        return company;
     }
 }

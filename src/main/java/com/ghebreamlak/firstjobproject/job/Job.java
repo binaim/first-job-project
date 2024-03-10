@@ -1,5 +1,6 @@
 package com.ghebreamlak.firstjobproject.job;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ghebreamlak.firstjobproject.company.Company;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,7 +21,9 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String Location;
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "company_id")
     private Company company;
 
 }

@@ -18,10 +18,10 @@ public class Company {
     private Long id;
     private String name;
     private String description;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Job> jobs;
-    @OneToMany(mappedBy = "company")
-    private List<Review> reviews;
+//    @OneToMany(mappedBy = "company", cascade = CascadeType.PERSIST)
+//    private List<Review> reviews;
 
 
 }
